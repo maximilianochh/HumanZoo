@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-
+import java.util.Collections;
 public class Society{
 	private String tipo;
 	private int anioActual;
@@ -10,7 +10,7 @@ public class Society{
 	private int eMaxR;
 	private float tasaDeMortalidad;
 	private int ctrlBorns;
-	private Resources resources;
+	private iResources resources;
 	public void setTipo(String tipo) {
 		 if ("Comunist".equalsIgnoreCase(tipo)){
 		 	this.tipo=tipo;
@@ -18,7 +18,7 @@ public class Society{
 		 if ("Capitalist".equalsIgnoreCase(tipo)){
 		 	this.tipo=tipo;
 		 }
-	} 
+	}
 	public int getAnioActual(){
 		return anioActual;	
 	}
@@ -75,5 +75,25 @@ public class Society{
 	}
 	public void bigBang() {
 		
+	}
+	public void asignation() {
+		//Falta priorizar los chicos
+		Collections.sort(personas,new aptitudCamparator());
+		if ("comunist".equalsIgnoreCase(tipo)) {
+			int salario=this.resources.getCant()/this.personas.size();
+			if (salario>this.rMaxAPP) {
+				salario=this.rMaxAPP;
+			}
+			if (salario<this.rMinAPP){
+				salario=this.rMinAPP;
+			}
+			for (Person a:this.personas) {
+				if (this.resources.getCant()<this.rMinAPP) {
+					break;
+				}
+				a.addRecursosDisponibles(salario);
+				this.resources.decr(salario);
+			}
+		}
 	}
 }

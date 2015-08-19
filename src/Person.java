@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-
 public class Person {
 	private int edad;
 	private String estado;
@@ -108,7 +107,7 @@ public class Person {
 	public void setSexo(String sexo) {
 		Sexo = sexo;
 	}
-	public boolean isEsterilidad() {
+	public boolean isEsteril() {
 		return esterilidad;
 	}
 	public void setEsterilidad(boolean esterilidad) {
