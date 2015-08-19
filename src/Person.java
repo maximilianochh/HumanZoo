@@ -117,12 +117,7 @@ public class Person
 	public void setSexo(String sexo) {
 		sexo = sexo;
 	}
-<<<<<<< HEAD
-	
-	public boolean isEsterilidad() {
-=======
 	public boolean isEsteril() {
->>>>>>> cf8bc0c09223b0be015ef85a1ac468a9a4aedd62
 		return esterilidad;
 	}
 	
